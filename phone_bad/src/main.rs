@@ -3,7 +3,7 @@ fn get_args() -> Vec<String> {
     
     let args: Vec<String> = env::args().collect();
 
-    if args.len() != 5 && args.len() != 2 {
+    if args.len() != 5 {
         panic!("Usage: phone_bad <path_to_phone_file> <path_to_good_file> <path_to_book_file> <path_to_bad_file>")
     }
 
