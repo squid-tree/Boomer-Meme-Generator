@@ -20,7 +20,7 @@ fn open_file(pathlit: String) -> Vec<String> {
 }
 
 
-fn first_letter_to_upper_case (s1: &String) -> String {
+fn first_letter_to_upper_case(s1: &String) -> String {
     let mut c = s1.chars();
     match c.next() {
         None => String::new(),
@@ -28,22 +28,53 @@ fn first_letter_to_upper_case (s1: &String) -> String {
     }
 }
 
+fn greatest_vec(v1: &Vec<String>, v2: &Vec<String>, v3: &Vec<String>, v4: &Vec<String>) -> (Vec<String>, Vec<String>, Vec<String>, Vec<String>) {
+    use std::collections::HashMap;
+    let hashmap = hashmap::New();
+
+    hashmap.insert(
+        "v1";
+        v1.len();
+    );
+    hashmap.insert(
+        "v2";
+        v1.len();
+    );
+    hashmap.insert(
+        "v3";
+        v3.len();
+    );
+    hashmap.insert(
+        "v4";
+        v4.len();
+    );
+
+}
+
+fn get_index(i: usize, len: usize) -> usize {
+    let mut iteration: i32 = i.try_into().unwrap();
+    let length: i32 = len.try_into().unwrap();
+
+    while length < iteration {
+       iteration = iteration - length;
+    }
+
+    let index: i32 = iteration - 1;
+
+    index.try_into().unwrap()
+}
+
+
 fn main() {
     let args = get_args();
 
     let phone = open_file(args[1].clone()); 
     let book = open_file(args[3].clone());  
-    let good = open_file(args[2].clone()); 
-    let bad = open_file(args[4].clone());
+    let good = open_file(args[4].clone()); 
+    let bad = open_file(args[2].clone());
+    let largest = greatest_vec(&phone, &bad, &book, &good);
 
-    for pitem in &phone {
-        for bitem in &book {
-            for baitem in &bad {
-                for gitem in &good {
-                    println!("{} {}, {} {}", first_letter_to_upper_case(pitem).trim(), baitem.to_lowercase().trim(), bitem.to_lowercase().trim(), gitem.to_lowercase().trim());
-                }
-            }
-        }
+    for i in 1..largest.len() + 1 {
+        println!("{} {}, {} {}", first_letter_to_upper_case(&phone[get_index(i, phone.clone().len())]).trim(), &bad[get_index(i, bad.clone().len())].to_lowercase().trim(), &book[get_index(i, book.clone().len())].to_lowercase().trim(), &good[get_index(i, good.clone().len())].to_lowercase().trim());
     }
 }
-
