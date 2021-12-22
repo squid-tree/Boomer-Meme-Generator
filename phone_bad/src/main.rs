@@ -9,11 +9,16 @@ fn main() {
     let good = process_vec(open_file(args[4].clone()), 4); 
     let bad = process_vec(open_file(args[2].clone()), 2);
 
-    for i in 0..phone.len() {
-        for i2 in 0..bad.len() {
-            for i3 in 0..book.len() {
-                for i4 in 0..good.len() {
-                    println!("{} {}, {} {}", &phone[get_index(i, phone.len())], &bad[get_index(i2, bad.len())], &book[get_index(i3, book.len())], &good[get_index(i4, good.len())]);
+    let phonelen = phone.len();
+    let booklen = book.len();
+    let goodlen = good.len();
+    let badlen = bad.len();
+
+    for i in 0..phonelen {
+        for i2 in 0..badlen {
+            for i3 in 0..booklen {
+                for i4 in 0..goodlen {
+                    println!("{} {}, {} {}", phone[get_index(i, phonelen)], bad[get_index(i2, badlen)], book[get_index(i3, booklen)], good[get_index(i4, goodlen)]);
                 }
             }
         }
