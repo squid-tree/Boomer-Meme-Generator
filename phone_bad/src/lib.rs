@@ -20,7 +20,7 @@ pub fn open_file(pathlit: String) -> Vec<String> {
 }
 
 
-pub fn first_letter_to_upper_case(s1: &String) -> String {
+pub fn first_letter_to_upper_case(s1: String) -> String {
     let mut c = s1.chars();
     match c.next() {
         None => String::new(),
@@ -36,6 +36,13 @@ pub fn get_index(i: usize, len: usize) -> usize {
     }
 
     iteration
+}
+
+pub fn process_vec(vec: Vec<String>, order: i32) -> Vec<String> {
+    match order {
+        1 => vec.into_iter().map(|x| first_letter_to_upper_case(x).trim().to_string()).collect(), 
+        _ => vec.into_iter().map(|x| x.to_lowercase().trim().to_string()).collect(),
+    }
 }
 
 pub fn get_vector_rank(v1: &Vec<String>, v2: &Vec<String>, v3: &Vec<String>, v4: &Vec<String>, rank: i32) -> Vec<String> {
