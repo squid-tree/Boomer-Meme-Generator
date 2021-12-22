@@ -9,11 +9,6 @@ fn main() {
     let good = process_vec(open_file(args[4].clone()), 4); 
     let bad = process_vec(open_file(args[2].clone()), 2);
 
-    let first = get_vector_rank(&phone, &bad, &book, &good, 1);
-    let second = get_vector_rank(&phone, &bad, &book, &good, 2);
-    let third = get_vector_rank(&phone, &bad, &book, &good, 3);
-    let fourth = get_vector_rank(&phone, &bad, &book, &good, 4);
-
     for i in 0..phone.len() {
         for i2 in 0..bad.len() {
             for i3 in 0..book.len() {

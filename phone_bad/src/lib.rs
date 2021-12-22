@@ -44,31 +44,3 @@ pub fn process_vec(vec: Vec<String>, order: i32) -> Vec<String> {
         _ => vec.into_iter().map(|x| x.to_lowercase().trim().to_string()).collect(),
     }
 }
-
-pub fn get_vector_rank(v1: &Vec<String>, v2: &Vec<String>, v3: &Vec<String>, v4: &Vec<String>, rank: i32) -> Vec<String> {
-    let mut lengths = vec![v1.len(), v2.len(), v3.len(), v4.len()];
-    lengths.sort();
-    lengths.reverse();
-    
-    fn get_rank(vector: &Vec<String>, lengths: &Vec<usize>) -> i32 {
-        match vector.len() {
-            _ if vector.len() == lengths[0] => 1,
-            _ if vector.len() == lengths[1] => 2,
-            _ if vector.len() == lengths[2] => 3,
-            _ if vector.len() == lengths[3] => 4,
-            _ => panic!(),
-        }
-    }
-    
-    if get_rank(v1, &lengths) == rank {
-        v1.clone()
-    } else if get_rank(v2, &lengths) == rank {
-        v2.clone()
-    } else if get_rank(v3, &lengths) == rank {
-        v3.clone()
-    } else if get_rank(v4, &lengths) == rank {
-        v4.clone()
-    } else {
-        panic!()
-    }
-}
